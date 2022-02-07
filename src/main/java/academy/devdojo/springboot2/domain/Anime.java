@@ -16,12 +16,12 @@ import javax.persistence.Id;
 @Entity
 @Builder
 public class Anime {
-
-    private String name;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
+
+
 
 
 }

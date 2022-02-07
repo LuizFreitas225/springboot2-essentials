@@ -40,6 +40,13 @@ public class AnimeController {
 
     }
 
+    @GetMapping(path = "/find")
+    public ResponseEntity<List<Anime>> findByName(@RequestParam String name) {
+
+        return  ResponseEntity.ok(animeService.findByName(name));
+
+    }
+
     @PostMapping
     public  ResponseEntity<Anime> save(@RequestBody AnimePostRequestBody anime){
       return  new ResponseEntity<>(animeService.save(anime), HttpStatus.CREATED);
