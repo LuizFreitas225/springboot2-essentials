@@ -7,9 +7,8 @@ import academy.devdojo.springboot2.request.AnimePostRequestBody;
 import academy.devdojo.springboot2.request.AnimePutRequestBody;
 import lombok.RequiredArgsConstructor;
 import academy.devdojo.springboot2.mapper.AnimeMapper;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
@@ -19,7 +18,7 @@ import java.util.List;
 public class AnimeService {
     private final AnimeRepository animeRepository;
 
-    public List<Anime> findByName( String name) {
+    public List<Anime> findByName(String name) {
 
         return animeRepository.findByName(name);
     }
@@ -36,6 +35,7 @@ public class AnimeService {
 
     }
 
+    @Transactional
     public Anime save(AnimePostRequestBody animePostRequestBody) {
         return animeRepository.save(AnimeMapper.INSTANCE.toAnime(animePostRequestBody));
 
