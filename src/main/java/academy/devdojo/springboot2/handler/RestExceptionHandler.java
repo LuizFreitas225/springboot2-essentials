@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//MANIPULA O RETORNO DAS REQUEST MEDIANTE DETERMINADAS EXCEPTIONS
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -35,6 +36,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                         .build(), HttpStatus.BAD_REQUEST);
     }
 
+    //SOBREESCREVER O RETORNO PREVIAMENTE DEFINIDO PELO SPRING MVC PARA ESSA EXCEPTION
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers, HttpStatus status,
@@ -57,6 +59,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                         .build(), HttpStatus.BAD_REQUEST);
     }
 
+    //SOBREESCREVER O RETORNO PREVIAMENTE DEFINIDO PELO SPRING MVC PARA TODAS AS DEMAIS EXCEPTIONS
     @Override
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, @Nullable Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
         if (HttpStatus.INTERNAL_SERVER_ERROR.equals(status)) {

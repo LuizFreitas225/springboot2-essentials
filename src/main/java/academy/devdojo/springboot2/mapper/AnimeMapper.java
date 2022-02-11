@@ -6,12 +6,12 @@ import academy.devdojo.springboot2.request.AnimePutRequestBody;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-
+//UTILIZA A FERRAMENTA MAP STRUCT PARA CONVERTER ANIMES EM DTOS
 @Mapper(componentModel = "spring")
-public abstract  class AnimeMapper {
+public abstract class AnimeMapper {
     public static final AnimeMapper INSTANCE = Mappers.getMapper(AnimeMapper.class);
 
-    public  abstract Anime toAnime(AnimePostRequestBody animePostRequestBody);
+    public abstract Anime toAnime(AnimePostRequestBody animePostRequestBody);
 
-    public abstract  Anime toAnime(AnimePutRequestBody animePutRequestBody);
+    public abstract Anime toAnime(AnimePutRequestBody animePutRequestBody);
 }
