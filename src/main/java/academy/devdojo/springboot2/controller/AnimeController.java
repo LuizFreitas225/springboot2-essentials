@@ -31,14 +31,14 @@ public class AnimeController {
    //http://localhost:8080/anime
     @GetMapping
     public ResponseEntity<Page<Anime>> list(Pageable pageable) {
-        log.info(dateUtil.fomartLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
+        log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return  ResponseEntity.ok(animeService.listAll(pageable));
 
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Anime> findById(@PathVariable long id) {
-        log.info(dateUtil.fomartLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
+        log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return  ResponseEntity.ok(animeService.findByIdOrThrowBadRequestException(id));
 
     }
