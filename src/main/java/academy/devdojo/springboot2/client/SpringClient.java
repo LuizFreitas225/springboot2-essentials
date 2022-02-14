@@ -43,10 +43,11 @@ public class SpringClient {
         ResponseEntity<Anime> samuraiChamplooSaved = new RestTemplate().exchange("http://localhost:8080/animes",
                 HttpMethod.POST, new HttpEntity<>(samuraiChamploo), Anime.class);
         log.info("saved anime {}", samuraiChamplooSaved);
-         if( samuraiChamplooSaved != null){
+
+
              Anime animeToBeUpdate = samuraiChamplooSaved.getBody();
              animeToBeUpdate.setName("Samurai Champloo 2");
-         }
+
 
 
         ResponseEntity<Void>   samuraiChamplooUpdate= new RestTemplate().exchange("http://localhost:8080/animes",
