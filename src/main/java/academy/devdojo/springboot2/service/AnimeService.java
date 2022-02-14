@@ -25,9 +25,13 @@ public class AnimeService {
         return animeRepository.findByName(name);
     }
 
-    public Page  <Anime> listAll(Pageable pageable) {
+    public Page<Anime> listAll(Pageable pageable) {
 
         return animeRepository.findAll(pageable);
+    }
+
+    public List<Anime> listAllNonPageable() {
+        return animeRepository.findAll();
     }
 
     public Anime findByIdOrThrowBadRequestException(long id) {
@@ -52,4 +56,5 @@ public class AnimeService {
         Anime anime = AnimeMapper.INSTANCE.toAnime(animePutRequestBody);
         animeRepository.save(anime);
     }
+
 }
