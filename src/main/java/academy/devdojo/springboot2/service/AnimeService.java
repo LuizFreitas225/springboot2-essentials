@@ -43,7 +43,8 @@ public class AnimeService {
 
     @Transactional
     public Anime save(AnimePostRequestBody animePostRequestBody) {
-        return animeRepository.save(AnimeMapper.INSTANCE.toAnime(animePostRequestBody));
+        Anime anime = AnimeMapper.INSTANCE.toAnime(animePostRequestBody);
+        return animeRepository.save(anime);
 
     }
 
